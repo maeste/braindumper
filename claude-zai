@@ -1,0 +1,20 @@
+#!/bin/bash
+# Launch Claude Code with Z.ai GLM models
+# Uses Z.ai's Anthropic-compatible API endpoint
+
+# Unset Vertex configuration
+unset CLAUDE_CODE_USE_VERTEX
+unset CLOUD_ML_REGION
+unset ANTHROPIC_VERTEX_PROJECT_ID
+
+# Set Z.ai endpoint and auth
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+export ANTHROPIC_AUTH_TOKEN="XXXXX.YYYYYY"  # Replace with your actual Z.ai API key
+
+# Optional: Configure model mappings (uncomment and adjust if needed)
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="glm-4.5-air"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="glm-4.6"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="glm-4.6"
+
+# Launch claude with Z.ai configuration
+/home/maeste/.claude/local/claude "$@"
